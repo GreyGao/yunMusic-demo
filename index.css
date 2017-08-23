@@ -16,9 +16,23 @@
 .tabs { display: flex; justify-content: center; align-items: center; border-bottom: 1px solid #E8E8E8; }
 .tabs > .tabs-main { width: 33.333333%; text-align: center; padding: 10px 0 7px; }
 .tabs > .active > .tabText > span { color: #D33A31; position: relative; padding: 0 5px }
-.tabs > .active > .tabText > span::after { content: ''; display: block; border-bottom: 2px solid #D43C33;
-    position: absolute; width: 100%; left: 0px; bottom: -11px; padding: 2px; }
+.tabs > .active > .tabText > span::after { content: ''; display: block; border-bottom: 2px solid #D33A31;
+    position: absolute; width: 100%; left: 0; bottom: -11px;  }
 
 /*recommends 推荐音乐*/
-.recommends{padding:5px 7px;}
-.recommends > h2{font-size:17px;}
+.recommends { background: #FCFCFD; }
+.recommends > .rec-titles { font-size: 17px; line-height: 1; padding: 21px 9px 16px; position: relative; }
+.recommends > .rec-titles::before { content: ''; display: block; position: absolute; left: 0;
+    width: 2px; height: 16px; background-color: #D33A31 }
+/*albums 推荐歌单*/
+.albums { display: flex; flex-wrap: wrap; justify-content: space-between; }
+.albums > .album { width: calc((100% - 5px) / 3); padding-bottom: 5px; }
+.albums > .album > .img-wrapper { padding-top: 100%; position: relative; }
+.albums > .album > .img-wrapper::after { content: ''; display: block; position: absolute; width: 100%; height: 20px;
+    top: 0; z-index: 1; left: 0; background-image: linear-gradient(180deg, rgba(0, 0, 0, .2), transparent); }
+.albums > .album > .img-wrapper > img { width: 100%; height: 100%; position: absolute; top: 0; }
+.albums > .album > p { font-size: 13px; padding: 6px 2px 0 6px; line-height: 1.2; margin-bottom: 11px; color: #333; }
+.albums > .album > .img-wrapper > .rec-num { position: absolute; top: 2px; right: 5px; color: #fff; font-size: 12px;
+    z-index: 2; background-position: 0; background-repeat: no-repeat; background-size: 11px 10px; padding-left: 14px; }
+.u-earp { background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMiAyMCI+PGcgb3BhY2l0eT0iLjE1Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiMwNDAwMDAiIGQ9Im0yMiAxNi43NzdjMCAxLjIzMy0xLjEyMSAyLjIzMy0yLjUwNiAyLjIzMy0xLjM4NCAwLTIuNTA2LTEtMi41MDYtMi4yMzN2LTIuNTUzYzAtMS4yMzQgMS4xMjItMi4yMzMgMi41MDYtMi4yMzMuMTc0IDAgLjM0My4wMTcuNTA2LjA0NnYtMS4zN2gtLjAzM2MuMDE3LS4yMi4wMzMtLjQ0MS4wMzMtLjY2NiAwLTQuNDE4LTMuNTgyLTgtOC04LTQuNDE4IDAtOCAzLjU4Mi04IDggMCAuMjI1LjAxNi40NDYuMDM0LjY2NmgtLjAzNHYxLjM3Yy4xNjMtLjAyOS4zMzMtLjA0Ni41MDUtLjA0NiAxLjM4NCAwIDIuNTA2Ljk5OSAyLjUwNiAyLjIzM3YyLjU1M2MwIDEuMjMzLTEuMTIyIDIuMjMzLTIuNTA2IDIuMjMzcy0yLjUwNS0uOTk5LTIuNTA1LTIuMjMzdi0yLjU1M2MwLS4yNTguMDU5LS41MDEuMTQ4LS43My0uMDg1LS4xNDgtLjE0OC0uMzEtLjE0OC0uNDkzdi0yLjY2N2MwLS4wMjMuMDEyLS4wNDMuMDEzLS4wNjctLjAwNC0uMDg4LS4wMTMtLjE3Ni0uMDEzLS4yNjYgMC01LjUyMyA0LjQ3Ny0xMCAxMC0xMCA1LjUyMyAwIDEwIDQuNDc3IDEwIDEwIDAgLjA5LS4wMDkuMTc4LS4wMTQuMjY2LjAwMi4wMjQuMDE0LjA0NC4wMTQuMDY3djJjMCAuMzA2LS4xNDUuNTY5LS4zNi43NTMuMjI0LjMzNC4zNi43Mi4zNiAxLjEzOHYyLjU1MiIvPjwvZz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNmZmYiIGQ9Im0yMCAxNi43NzdjMCAxLjIzMy0xLjEyMSAyLjIzMy0yLjUwNiAyLjIzMy0xLjM4NCAwLTIuNTA2LTEtMi41MDYtMi4yMzN2LTIuNTUzYzAtMS4yMzQgMS4xMjItMi4yMzMgMi41MDYtMi4yMzMuMTc0IDAgLjM0My4wMTcuNTA2LjA0NnYtMS4zN2gtLjAzM2MuMDE3LS4yMi4wMzMtLjQ0MS4wMzMtLjY2NiAwLTQuNDE4LTMuNTgyLTgtOC04LTQuNDE4IDAtOCAzLjU4Mi04IDggMCAuMjI1LjAxNi40NDYuMDM0LjY2NmgtLjAzNHYxLjM3Yy4xNjMtLjAyOS4zMzMtLjA0Ni41MDUtLjA0NiAxLjM4NCAwIDIuNTA2Ljk5OSAyLjUwNiAyLjIzM3YyLjU1M2MwIDEuMjMzLTEuMTIyIDIuMjMzLTIuNTA2IDIuMjMzcy0yLjUwNS0uOTk5LTIuNTA1LTIuMjMzdi0yLjU1M2MwLS4yNTguMDU5LS41MDEuMTQ4LS43My0uMDg1LS4xNDgtLjE0OC0uMzEtLjE0OC0uNDkzdi0yLjY2N2MwLS4wMjMuMDEyLS4wNDMuMDEzLS4wNjctLjAwNC0uMDg4LS4wMTMtLjE3Ni0uMDEzLS4yNjYgMC01LjUyMyA0LjQ3Ny0xMCAxMC0xMCA1LjUyMyAwIDEwIDQuNDc3IDEwIDEwIDAgLjA5LS4wMDkuMTc4LS4wMTQuMjY2LjAwMi4wMjQuMDE0LjA0NC4wMTQuMDY3djJjMCAuMzA2LS4xNDUuNTY5LS4zNi43NTMuMjI0LjMzNC4zNi43Mi4zNiAxLjEzOHYyLjU1MiIvPjwvc3ZnPg==); }
+
