@@ -1,0 +1,12 @@
+/*default red: #D43C33 */
+/*default background: #FCFCFD */
+
+/*topbar*/
+.topbar{ background: #D43C33; padding:20px 10px 19px;position: relative;}
+.topbar > .logo {width:142px; height:25px;}
+.topbar > .downloadButton {float:right;right:10px;top:17px;position: absolute;
+    padding:4px 10px;
+    color:#fff;}
+.topbar > .downloadButton::after{content: '';display: block;position: absolute;top:-50%;left:-50%;
+    border:1px solid #fff;border-radius: 30px;
+    width:200%;height:200%;transform:scale(0.5)}
