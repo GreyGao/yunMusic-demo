@@ -51,7 +51,18 @@
 .songInfo > .playButton { position: absolute; right: 10px; top: 17px; }
 
 /*icon*/
-.icon{background: url(//s3.music.126.net/m/s/img/index_icon_2x.png?5207a28…) no-repeat;
-    background-size: 166px 97px;}
-.icon-sq{width:12px;height:8px;margin-right:4px;display:inline-block; }
-.icon-play{width:22px;height:22px;background-position: -24px 0;display:inline-block;}
+.icon { background: url(//s3.music.126.net/m/s/img/index_icon_2x.png?5207a28…) no-repeat;
+    background-size: 166px 97px; }
+.icon-sq { width: 12px; height: 8px; margin-right: 4px; display: inline-block; }
+.icon-play { width: 22px; height: 22px; background-position: -24px 0; display: inline-block; }
+
+/*footer appRecommend APP推荐*/
+.appRecommend { margin-top: 4px; padding-bottom: 1px;
+    background: url(//s3.music.126.net/m/s/img/recommand_bg_2x.png?d045fafc60e017b653f8065a87496922) no-repeat;
+    background-size: cover; position: relative; }
+.appRecommend > .logo { padding-top: 16.9% }
+.appRecommend > .logo > .logo2 { display: block; margin: 0 auto; width: 230px; height: 44px; }
+.appRecommend > .appLinks { margin: 15px 37px 1px; text-align: center; line-height: 38px; font-size: 16px;
+    border: 1px solid #D33A31; border-radius: 38px; color: #D33A31; }
+.appRecommend > .copyright { text-align: center; color: #888; font-size: 12px; line-height: 14px;
+    transform: scale(.75); padding-bottom: 40px; }
