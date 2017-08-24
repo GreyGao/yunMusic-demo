@@ -1,9 +1,12 @@
 /*default background red: #D43C33 */
 /*default background white: #FCFCFD */
 /*default color red：#D33A31*/
+/*default background img url: http://ww4.sinaimg.cn/large/0060lm7Tgy1fiu3rbkef8j30ku0b40wb.jpg*/
+/*default icon img url: http://ww2.sinaimg.cn/large/0060lm7Tgy1fiu3rb6ecgj309805edg2.jpg*/
 
 
 /*topbar 顶栏*/
+.topbar-wrapper{position:fixed;top:0;left:0;z-index:5;width:100%;}
 .topbar { background: #D43C33; padding: 20px 10px 19px; position: relative; }
 .topbar > .logo { width: 142px; height: 25px; }
 .topbar > .downloadButton { float: right; right: 10px; top: 17px; position: absolute;
@@ -11,13 +14,18 @@
 .topbar > .downloadButton::after { content: ''; display: block; position: absolute; top: -50%; left: -50%;
     border: 1px solid #fff; border-radius: 30px;
     width: 200%; height: 200%; transform: scale(0.5) }
+.topfix{}
 
 /*tabs 主标签栏*/
+.tabs-wrapper{position:fixed;top:64px;left:0;z-index:5;width: 100%; background: #fff;}
 .tabs { display: flex; justify-content: center; align-items: center; border-bottom: 1px solid #E8E8E8; }
 .tabs > .tabs-main { width: 33.333333%; text-align: center; padding: 10px 0 7px; }
 .tabs > .active > .tabText > span { color: #D33A31; position: relative; padding: 0 5px }
 .tabs > .active > .tabText > span::after { content: ''; display: block; border-bottom: 2px solid #D33A31;
     position: absolute; width: 100%; left: 0; bottom: -11px;  }
+
+/*mainPages*/
+.mainPages{margin-top:104px;}
 
 /*recommends 推荐音乐*/
 .recommends { background: #FCFCFD; }
@@ -57,9 +65,10 @@
 .icon-play { width: 22px; height: 22px; background-position: -24px 0; display: inline-block; }
 
 /*footer appRecommend APP推荐*/
-.appRecommend { margin-top: 4px; padding-bottom: 1px;
+.footer-wrapper{position:relative;padding-top:53.3%;margin-top: 4px;
     background: url(http://ww4.sinaimg.cn/large/0060lm7Tgy1fiu3rbkef8j30ku0b40wb.jpg) no-repeat;
-    background-size: cover; position: relative; }
+    background-size: contain; }
+.appRecommend { position: absolute;left:0;top:0;right:0;bottom:0;}
 .appRecommend > .logo { padding-top: 16.9% }
 .appRecommend > .logo > .logo2 { display: block; margin: 0 auto; width: 230px; height: 44px; }
 .appRecommend > .appLinks { margin: 15px 37px 1px; text-align: center; line-height: 38px; font-size: 16px;
