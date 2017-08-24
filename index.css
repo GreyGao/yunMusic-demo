@@ -78,8 +78,12 @@
 .appRecommend > .appLinks { margin: 15px 37px 1px; text-align: center; line-height: 38px; font-size: 16px;
     border: 1px solid #D33A31; border-radius: 38px; color: #D33A31; }
 .appRecommend > .copyright { text-align: center; color: #888; font-size: 12px; line-height: 14px;
-    transform: scale(.75); padding-bottom: 40px; }
-
+    transform: scale(.75);}
+@media screen and (max-width: 374px){
+    .appRecommend > .logo{
+        padding-top: 12%;
+    }
+}
 
 
 /*hotSongs 热歌榜 Banner*/
