@@ -26,6 +26,8 @@
 
 /*mainPages*/
 .mainPages{margin-top:104px;}
+.mainPage{display: none;}
+.mainPages>.active{display: block;}
 
 /*recommends 推荐音乐*/
 .recommends { background: #FCFCFD; }
