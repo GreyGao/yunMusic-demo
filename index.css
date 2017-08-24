@@ -2,7 +2,8 @@
 /*default background white: #FCFCFD */
 /*default color red：#D33A31*/
 /*default background img url: http://ww4.sinaimg.cn/large/0060lm7Tgy1fiu3rbkef8j30ku0b40wb.jpg*/
-/*default icon img url: http://ww2.sinaimg.cn/large/0060lm7Tgy1fiu3rb6ecgj309805edg2.jpg*/
+/*default icon img url: https://i.loli.net/2017/08/24/599eaef86053a.png*/
+/*default hotSong img url:http://ww4.sinaimg.cn/large/0060lm7Tgy1fiuzjvj8xtj30ku084mx1.jpg*/
 
 
 /*topbar 顶栏*/
@@ -60,20 +61,48 @@
 .songInfo > .singer { font-size: 12px; color: #888; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .songInfo > .playButton { position: absolute; right: 10px; top: 17px; }
 
+
 /*icon*/
-.icon { background: url(http://ww2.sinaimg.cn/large/0060lm7Tgy1fiu3rb6ecgj309805edg2.jpg) no-repeat;
+.icon { background: url(https://i.loli.net/2017/08/24/599eaef86053a.png) no-repeat;
     background-size: 166px 97px; }
 .icon-sq { width: 12px; height: 8px; margin-right: 4px; display: inline-block; }
 .icon-play { width: 22px; height: 22px; background-position: -24px 0; display: inline-block; }
 
 /*footer appRecommend APP推荐*/
-.footer-wrapper{position:relative;padding-top:53.3%;margin-top: 4px;
+.footer-wrapper { position: relative; padding-top: 53.3%; margin-top: 4px;
     background: url(http://ww4.sinaimg.cn/large/0060lm7Tgy1fiu3rbkef8j30ku0b40wb.jpg) no-repeat;
     background-size: contain; }
-.appRecommend { position: absolute;left:0;top:0;right:0;bottom:0;}
+.banner { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
 .appRecommend > .logo { padding-top: 16.9% }
 .appRecommend > .logo > .logo2 { display: block; margin: 0 auto; width: 230px; height: 44px; }
 .appRecommend > .appLinks { margin: 15px 37px 1px; text-align: center; line-height: 38px; font-size: 16px;
     border: 1px solid #D33A31; border-radius: 38px; color: #D33A31; }
 .appRecommend > .copyright { text-align: center; color: #888; font-size: 12px; line-height: 14px;
     transform: scale(.75); padding-bottom: 40px; }
+
+
+
+/*hotSongs 热歌榜 Banner*/
+.hotBanner-wrapper{padding-top: 38.9%;overflow: hidden;position: relative;
+    background: url(http://ww4.sinaimg.cn/large/0060lm7Tgy1fiuzjvj8xtj30ku084mx1.jpg) no-repeat;
+    background-size:contain;}
+.hotBanner{padding-left:20px;display: flex;flex-flow: column;justify-content: center;}
+.hotBanner::after{content:"";position: absolute; left: 0; top: 0; right: 0; bottom: 0; z-index: 1;
+    background-color: rgba(0,0,0,.2);}
+.hotBanner>.icon-hotSong{width: 142px;z-index: 2; height: 67px; background-position: -24px -30px;}
+.hotBanner>.hotTime{margin-top:10px;color:hsla(0,0%,100%,.8);font-size:12px;
+    transform:scale(.91); transform-origin:left top;z-index: 2;}
+
+/*hotSongs 热歌榜 songList*/
+.hotSongsList-wrapper{padding-left:5px;}
+.hotSongsOrder{float:left; width:28px;display: flex;flex-flow: column;}
+.songOrder{display: flex;justify-content: center;align-items: center;font-size:17px;color:#999;height:55px;}
+.songOrder-top{color:#DF3436;}
+.hotSongsList{padding-left: 33px;}
+
+.hotMore{text-align: center;}
+.hotMore > span{display: inline-block;color:#999;
+    background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNCAyMiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSJub25lIiBzdHJva2U9IiNjY2MiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBkPSJtMSAxbDEwIDEwLTEwIDEwIi8+PC9zdmc+) 100% no-repeat;
+    background-size:7px 12px;font-size:14px;line-height:14px;
+    padding:20px 14px 21px 0;
+}
