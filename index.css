@@ -15,7 +15,6 @@
 .topbar > .downloadButton::after { content: ''; display: block; position: absolute; top: -50%; left: -50%;
     border: 1px solid #fff; border-radius: 30px;
     width: 200%; height: 200%; transform: scale(0.5) }
-.topfix{}
 
 /*tabs 主标签栏*/
 .tabs-wrapper{position:fixed;top:64px;left:0;z-index:5;width: 100%; background: #fff;}
@@ -85,7 +84,6 @@
     }
 }
 
-
 /*hotSongs 热歌榜 Banner*/
 .hotBanner-wrapper{padding-top: 38.9%;overflow: hidden;position: relative;
     background: url(http://ww4.sinaimg.cn/large/0060lm7Tgy1fiuzjvj8xtj30ku084mx1.jpg) no-repeat;
@@ -104,7 +102,7 @@
 .songOrder-top{color:#DF3436;}
 .hotSongsList{padding-left: 33px;}
 
-.hotMore{text-align: center;}
+.hotMore{text-align: center;padding-right:5px;}
 .hotMore > span{display: inline-block;color:#999;
     background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNCAyMiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSJub25lIiBzdHJva2U9IiNjY2MiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBkPSJtMSAxbDEwIDEwLTEwIDEwIi8+PC9zdmc+) 100% no-repeat;
     background-size:7px 12px;font-size:14px;line-height:14px;
