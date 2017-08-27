@@ -1,6 +1,7 @@
 /*default background red: #D43C33 */
 /*default background white: #FCFCFD */
 /*default color red：#D33A31*/
+/*default border color: #E8E8E8*/
 /*default background img url: http://ww4.sinaimg.cn/large/0060lm7Tgy1fiu3rbkef8j30ku0b40wb.jpg*/
 /*default icon img url: https://i.loli.net/2017/08/24/599eaef86053a.png*/
 /*default hotSong img url:http://ww4.sinaimg.cn/large/0060lm7Tgy1fiuzjvj8xtj30ku084mx1.jpg*/
@@ -30,7 +31,6 @@
 .mainPages>.active{display: block;}
 
 /*recommends 推荐音乐*/
-.recommends { background: #FCFCFD; }
 .recommends > .rec-titles { font-size: 17px; line-height: 1; padding: 21px 9px 16px; position: relative; }
 .recommends > .rec-titles::before { content: ''; display: block; position: absolute; left: 0;
     width: 2px; height: 16px; background-color: #D33A31 }
@@ -49,7 +49,7 @@
     z-index: 2; background-position: 0; background-repeat: no-repeat; background-size: 11px 10px; padding-left: 14px; }
 .u-earp { background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMiAyMCI+PGcgb3BhY2l0eT0iLjE1Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiMwNDAwMDAiIGQ9Im0yMiAxNi43NzdjMCAxLjIzMy0xLjEyMSAyLjIzMy0yLjUwNiAyLjIzMy0xLjM4NCAwLTIuNTA2LTEtMi41MDYtMi4yMzN2LTIuNTUzYzAtMS4yMzQgMS4xMjItMi4yMzMgMi41MDYtMi4yMzMuMTc0IDAgLjM0My4wMTcuNTA2LjA0NnYtMS4zN2gtLjAzM2MuMDE3LS4yMi4wMzMtLjQ0MS4wMzMtLjY2NiAwLTQuNDE4LTMuNTgyLTgtOC04LTQuNDE4IDAtOCAzLjU4Mi04IDggMCAuMjI1LjAxNi40NDYuMDM0LjY2NmgtLjAzNHYxLjM3Yy4xNjMtLjAyOS4zMzMtLjA0Ni41MDUtLjA0NiAxLjM4NCAwIDIuNTA2Ljk5OSAyLjUwNiAyLjIzM3YyLjU1M2MwIDEuMjMzLTEuMTIyIDIuMjMzLTIuNTA2IDIuMjMzcy0yLjUwNS0uOTk5LTIuNTA1LTIuMjMzdi0yLjU1M2MwLS4yNTguMDU5LS41MDEuMTQ4LS43My0uMDg1LS4xNDgtLjE0OC0uMzEtLjE0OC0uNDkzdi0yLjY2N2MwLS4wMjMuMDEyLS4wNDMuMDEzLS4wNjctLjAwNC0uMDg4LS4wMTMtLjE3Ni0uMDEzLS4yNjYgMC01LjUyMyA0LjQ3Ny0xMCAxMC0xMCA1LjUyMyAwIDEwIDQuNDc3IDEwIDEwIDAgLjA5LS4wMDkuMTc4LS4wMTQuMjY2LjAwMi4wMjQuMDE0LjA0NC4wMTQuMDY3djJjMCAuMzA2LS4xNDUuNTY5LS4zNi43NTMuMjI0LjMzNC4zNi43Mi4zNiAxLjEzOHYyLjU1MiIvPjwvZz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNmZmYiIGQ9Im0yMCAxNi43NzdjMCAxLjIzMy0xLjEyMSAyLjIzMy0yLjUwNiAyLjIzMy0xLjM4NCAwLTIuNTA2LTEtMi41MDYtMi4yMzN2LTIuNTUzYzAtMS4yMzQgMS4xMjItMi4yMzMgMi41MDYtMi4yMzMuMTc0IDAgLjM0My4wMTcuNTA2LjA0NnYtMS4zN2gtLjAzM2MuMDE3LS4yMi4wMzMtLjQ0MS4wMzMtLjY2NiAwLTQuNDE4LTMuNTgyLTgtOC04LTQuNDE4IDAtOCAzLjU4Mi04IDggMCAuMjI1LjAxNi40NDYuMDM0LjY2NmgtLjAzNHYxLjM3Yy4xNjMtLjAyOS4zMzMtLjA0Ni41MDUtLjA0NiAxLjM4NCAwIDIuNTA2Ljk5OSAyLjUwNiAyLjIzM3YyLjU1M2MwIDEuMjMzLTEuMTIyIDIuMjMzLTIuNTA2IDIuMjMzcy0yLjUwNS0uOTk5LTIuNTA1LTIuMjMzdi0yLjU1M2MwLS4yNTguMDU5LS41MDEuMTQ4LS43My0uMDg1LS4xNDgtLjE0OC0uMzEtLjE0OC0uNDkzdi0yLjY2N2MwLS4wMjMuMDEyLS4wNDMuMDEzLS4wNjctLjAwNC0uMDg4LS4wMTMtLjE3Ni0uMDEzLS4yNjYgMC01LjUyMyA0LjQ3Ny0xMCAxMC0xMCA1LjUyMyAwIDEwIDQuNDc3IDEwIDEwIDAgLjA5LS4wMDkuMTc4LS4wMTQuMjY2LjAwMi4wMjQuMDE0LjA0NC4wMTQuMDY3djJjMCAuMzA2LS4xNDUuNTY5LS4zNi43NTMuMjI0LjMzNC4zNi43Mi4zNiAxLjEzOHYyLjU1MiIvPjwvc3ZnPg==); }
 .loading-music{text-align: center;}
-.line-scale-party > div { background-color: #FBF2F3;}
+.line-scale-party > div { background-color: #D33A31;}
 
 /*newSongs 最新音乐*/
 .recommends > .newSongs { margin-top: 3px; }
@@ -68,6 +68,11 @@
     background-size: 166px 97px; }
 .icon-sq { width: 12px; height: 8px; margin-right: 4px; display: inline-block; }
 .icon-play { width: 22px; height: 22px; background-position: -24px 0; display: inline-block; }
+/*svg*/
+.svg{ display: inline-block;background-position: 0 0; background-size: contain; background-repeat: no-repeat; }
+.svg-search{ width: 13px; height: 13px;
+    background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNiAyNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjYzljOWNhIiBkPSJNMjUuMTgxLDIzLjUzNWwtMS40MTQsMS40MTRsLTcuMzE1LTcuMzE0CgkJQzE0LjcwOSwxOS4xMDcsMTIuNDYsMjAsMTAsMjBDNC40NzcsMjAsMCwxNS41MjMsMCwxMEMwLDQuNDc3LDQuNDc3LDAsMTAsMGM1LjUyMywwLDEwLDQuNDc3LDEwLDEwYzAsMi4zNDItMC44MTEsNC40OS0yLjE2LDYuMTk1CgkJTDI1LjE4MSwyMy41MzV6IE0xMCwyYy00LjQxOCwwLTgsMy41ODItOCw4czMuNTgyLDgsOCw4YzQuNDE4LDAsOC0zLjU4Miw4LThTMTQuNDE4LDIsMTAsMnoiLz48L3N2Zz4=);}
+
 
 /*footer appRecommend APP推荐*/
 .footer-wrapper { position: relative; padding-top: 53.3%; margin-top: 4px;
@@ -108,5 +113,17 @@
 .hotMore > span{display: inline-block;color:#999;
     background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNCAyMiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSJub25lIiBzdHJva2U9IiNjY2MiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBkPSJtMSAxbDEwIDEwLTEwIDEwIi8+PC9zdmc+) 100% no-repeat;
     background-size:7px 12px;font-size:14px;line-height:14px;
-    padding:20px 14px 21px 0;
-}
+    padding:20px 14px 21px 0; }
+
+
+/*SearchPage 搜索 searchBar*/
+.search { }
+.searchBar { padding: 15px 10px; position: relative; }
+.searchBar::after { content: ''; display: block; position: absolute; top: -50%; left: -50%;
+    width: 200%; height: 200%; transform: scale(0.5); border-bottom: 1px solid rgba(0, 0, 0, .1); z-index: -1; }
+.searchBar > .input-wrapper { background: #EBECEC; border-radius: 30px; position: relative; padding: 0 30px; }
+.searchBar > .input-wrapper > .searchSongs { width: 100%; background: transparent; font-size: 14px;
+    line-height: 18px; padding: 6px 0; z-index: 3; }
+.searchBar > .input-wrapper > .holder { font-size: 14px; background: transparent; position: absolute; left: 30px;
+    margin-top: 5px; color: #c9c9c9; top: 0; pointer-events: none; }
+.searchBar > .input-wrapper > .svg-search { position: absolute; left: 8px; top: 9px; vertical-align: middle; }

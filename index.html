@@ -31,7 +31,7 @@
     <!--主页面-->
     <section class="mainPages">
         <!--推荐音乐-->
-        <div class="recommends mainPage active">
+        <div class="recommends mainPage">
             <!--推荐歌单-->
             <h2 class="recSongs rec-titles">推荐歌单</h2>
             <ul class="albums">
@@ -83,43 +83,6 @@
                     <p class="singer"><i class="icon icon-sq"></i>戴荃 - 十冷进行曲</p>
                     <div class="playButton"><i class="icon icon-play"></i></div>
                 </a>
-                <!--<a href="http://oval41e32.bkt.clouddn.com/%E6%88%90%E4%BA%BA%E6%B3%95%E5%88%99.mp3" class="songInfo">-->
-                    <!--<p class="songTitle">おとなの掟<span class="songDesc">（成人法则）</span></p>-->
-                    <!--<p class="singer"><i class="icon icon-sq"></i>Doughnuts Hole - おとなの掟</p>-->
-                    <!--<div class="playButton"><i class="icon icon-play"></i></div>-->
-                <!--</a>-->
-                <!--<div class="songInfo"><p class="songTitle">Paradise<span class="songDesc"></span></p>-->
-                    <!--<p class="singer">F.T Island - Paradise</p>-->
-                    <!--<div class="playButton"><i class="icon icon-play"></i></div>-->
-                <!--</div>-->
-                <!--<div class="songInfo"><p class="songTitle">未单身<span class="songDesc"></span></p>-->
-                    <!--<p class="singer"><i class="icon icon-sq"></i>A-Lin - 未单身</p>-->
-                    <!--<div class="playButton"><i class="icon icon-play"></i></div>-->
-                <!--</div>-->
-                <!--<div class="songInfo"><p class="songTitle">Walk On Water<span class="songDesc"></span></p>-->
-                    <!--<p class="singer">30 Seconds to Mars - Walk On Water</p>-->
-                    <!--<div class="playButton"><i class="icon icon-play"></i></div>-->
-                <!--</div>-->
-                <!--<div class="songInfo"><p class="songTitle">裙姊<span class="songDesc"></span></p>-->
-                    <!--<p class="singer">李荣浩 - 裙姊</p>-->
-                    <!--<div class="playButton"><i class="icon icon-play"></i></div>-->
-                <!--</div>-->
-                <!--<div class="songInfo"><p class="songTitle">夏の終わり<span class="songDesc"></span></p>-->
-                    <!--<p class="singer">森山直太朗 - 15th アニバーサリーツアー『絶対、大丈夫』</p>-->
-                    <!--<div class="playButton"><i class="icon icon-play"></i></div>-->
-                <!--</div>-->
-                <!--<div class="songInfo"><p class="songTitle">我害怕<span class="songDesc">(《问道》手游微电影主题曲)</span></p>-->
-                    <!--<p class="singer"><i class="icon icon-sq"></i>薛之谦 - 我害怕</p>-->
-                    <!--<div class="playButton"><i class="icon icon-play"></i></div>-->
-                <!--</div>-->
-                <!--<div class="songInfo"><p class="songTitle">不自然な自然<span class="songDesc">(不自然的自然)</span></p>-->
-                    <!--<p class="singer">上海アリス幻樂団 - 東方天空璋　～ Hidden Star in Four Seasons.</p>-->
-                    <!--<div class="playButton"><i class="icon icon-play"></i></div>-->
-                <!--</div>-->
-                <!--<div class="songInfo"><p class="songTitle">The Last Letter<span class="songDesc"></span></p>-->
-                    <!--<p class="singer"><i class="icon icon-sq"></i>Rex Griffin / Willie Nelson - In The Wild West</p>-->
-                    <!--<div class="playButton"><i class="icon icon-play"></i></div>-->
-                <!--</div>-->
             </div>
             <!--App推荐-->
             <footer class="footer-wrapper">
@@ -246,7 +209,19 @@
             </div>
         </div>
         <!--搜索-->
-        <div class="searchBar mainPage"></div>
+        <div class="search mainPage active">
+            <!--搜索栏-->
+            <div class="searchBar">
+                <div class="input-wrapper">
+                    <i class="svg svg-search "></i>
+                    <input class="searchSongs" type="text" placeholder value autocomplete="off">
+                    <label class="holder">搜索歌曲、歌手、专辑</label>
+                    <div class="searchClose"></div>
+                </div>
+            </div>
+            <!--搜索提示-->
+            <div class="searchTips"></div>
+        </div>
     </section>
 </body>
 <script src="./vendors/jquery.min.js"></script>
