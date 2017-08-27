@@ -1,7 +1,7 @@
+//主页面Tabs切换
 $('.tabs').on('click','.tabs-main',function (e) {
     let $li = $(e.currentTarget);
     let index = $li.index();
-    console.log('dianle');
     pageGo(index)
 });
 
@@ -22,7 +22,7 @@ AV.init({
 });
 
 
-// 添加数据库部分
+// 添加歌曲数据库部分
 // var Song = AV.Object.extend('Song');    //选择表名
 // var song = new Song();                  //创建一个实例
 // song.save({                             //数据内容信息
@@ -35,23 +35,48 @@ AV.init({
 //     alert('保存成功');
 // });
 
+// 歌单列表获取
 let newSongsList = document.querySelector('#newSongsList');
 let query = new AV.Query('Song');
 query.find().then(function (results) {
     $('#loading-music').remove();
-    console.log(results.length);
     for(let i=0; i<results.length;i++){
         let song = results[i].attributes;
-        console.log(song);
         let li =
             `<a href=${song.url} class="songInfo">
                     <p class="songTitle">${song.name}<span class="songDesc">${song.des}</span></p>
                     <p class="singer"><i class="icon icon-sq"></i>${song.singer} - ${song.album}</p>
                     <div class="playButton"><i class="icon icon-play"></i></div>
              </a>`;
-        console.log(li);
     newSongsList.insertAdjacentHTML('beforeend', li)
     }
 }, function (error) {
     alert('获取歌曲失败')
+});
+
+
+// 歌曲搜索
+let searchResults = document.querySelector('#searchResults');
+$('input#searchSong').on('input',function (e) {
+    let $input = $(e.currentTarget);
+    let value = $input.val().trim();
+    let query = new AV.Query('Song');
+  // query.contains('name',value);
+    query.contains('des',value);
+    query.find().then(function (results) {
+        console.log(results)
+        $('#searchResults').empty();
+        if (results.length === 0) {
+            $('#searchResults').html('没有结果')
+        } else {
+            for (let i = 0; i < results.length; i++) {
+                let song = results[i].attributes;
+                let li =
+                    `
+                <li class="searchSong">${song.name} - ${song.singer}</li>
+                `;
+                searchResults.insertAdjacentHTML('beforeend', li)
+            }
+        }
+    })
 });
