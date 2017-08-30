@@ -100,7 +100,7 @@ function inputChange(e) {
             $('#searchResults').removeClass('hide');
             $('#searchLink').text(`搜索"${value}"`)
         }
-    },400)
+    },300)
 }
 
 function hotSongLink(e) {
@@ -117,35 +117,44 @@ function searchSubmit(e){
 }
 
 function matchSongList(value) {
-    $('.resultMatch').removeClass('hide');
-    $('#searchTips').addClass('hide');
-    let matchSongList = document.querySelector('#matchSongList');
-    $('input#searchSong').val(value);
-    $('#search-holder').text('');
-    let nameQuery = new AV.Query('Song');
-    nameQuery.contains('name', value);
-    let singerQuery = new AV.Query('Song');
-    singerQuery.contains('singer', value);
-    let albumQuery = new AV.Query('Song');
-    albumQuery.contains('album', value);
-    let desQuery = new AV.Query('Song');
-    desQuery.contains('des', value);
-    let query = AV.Query.or(nameQuery, singerQuery, albumQuery, desQuery);
-
-    query.find().then(function (results) {
-        $('#matchSongList').empty();
-        for (let i = 0; i < results.length; i++) {
-            let song = results[i].attributes;
-            let div =
-                `<div class="songInfo">
+    if (value.length === 0) {
+    } else {
+        $('.resultMatch').removeClass('hide');
+        $('#searchTips').addClass('hide');
+        let matchSongList = document.querySelector('#matchSongList');
+        $('input#searchSong').val(value);
+        $('#search-holder').text('');
+        let nameQuery = new AV.Query('Song');
+        nameQuery.contains('name', value);
+        let singerQuery = new AV.Query('Song');
+        singerQuery.contains('singer', value);
+        let albumQuery = new AV.Query('Song');
+        albumQuery.contains('album', value);
+        let desQuery = new AV.Query('Song');
+        desQuery.contains('des', value);
+        let query = AV.Query.or(nameQuery, singerQuery, albumQuery, desQuery);
+        query.find().then(function (results) {
+            if (results.length === 0) {
+                $('#matchSongList').empty();
+                $('#matchTitle').text('');
+                let p = `<p>暂无搜索结果</p>`;
+                matchSongList.insertAdjacentHTML('beforeend', p)
+            } else {
+                $('#matchSongList').empty();
+                for (let i = 0; i < results.length; i++) {
+                    let song = results[i].attributes;
+                    let div =
+                        `<div class="songInfo">
              <p class="songTitle">${song.name}<span class="songDesc">${song.des}</span></p>
                             <p class="singer"><i class="icon icon-sq"></i>${song.singer} - ${song.album}</p>
                             <div class="playButton"><i class="icon icon-play"></i></div>   
                 
             `;
-            matchSongList.insertAdjacentHTML('beforeend', div)
-        }
-    })
+                    matchSongList.insertAdjacentHTML('beforeend', div)
+                }
+            }
+        })
+    }
 }
 
 
