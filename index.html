@@ -214,17 +214,23 @@
             <div class="searchBar">
                 <div class="input-wrapper">
                     <i class="svg svg-search "></i>
-                    <input class="searchSongs" id="searchSong" type="text" placeholder value autocomplete="off">
-                    <label class="holder">搜索歌曲、歌手、专辑</label>
+                    <input class="searchSongs" id="searchSong" type="text" placeholder value autocomplete="off" >
+                    <label class="holder" id="search-holder">搜索歌曲、歌手、专辑</label>
                     <div class="searchClose"></div>
                 </div>
             </div>
             <!--搜索结果-->
-            <ul class="searchResults" id="searchResults">
-
-            </ul>
+            <div class="searchResults hide" id="searchResults">
+                <div class="searchLink-wrapper" id="searchLink-wrapper">
+                    <div class="searchLink" id="searchLink"></div>
+                </div>
+                <div class="resultList-wrapper">
+                    <ul class="resultList" id="resultList">
+                    </ul>
+                </div>
+            </div>
             <!--搜索提示-->
-            <div class="searchTips">
+            <div class="searchTips" id="searchTips">
                 <h5>热门搜索</h5>
                 <ul class="hotSearchList">
                     <li class="hotSearch">

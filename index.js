@@ -41,29 +41,46 @@ query.find().then(function (results) {
 });
 
 // 歌曲搜索
-let searchResults = document.querySelector('#searchResults');
+let resultList = document.querySelector('#resultList');
 $('input#searchSong').on('input',function (e) {
+
     let $input = $(e.currentTarget);
     let value = $input.val().trim();
     let query = new AV.Query('Song');
   // query.contains('name',value);
     query.contains('des',value);
-    query.find().then(function (results) {
-        console.log(results)
-        $('#searchResults').empty();
-        if (results.length === 0) {
-            $('#searchResults').html('没有结果')
-        } else {
-            for (let i = 0; i < results.length; i++) {
-                let song = results[i].attributes;
-                let li =
-                    `
-                <li class="searchSong">${song.name} - ${song.singer}</li>
+
+    if(value.length === 0){
+        $('#searchTips').removeClass('hide');
+        $('#searchResults').addClass('hide');
+        $('#search-holder').text('搜索歌曲、歌手、专辑');
+
+    }else{
+        $('#searchTips').addClass('hide');
+        $('#search-holder').text('');
+        query.find().then(function (results) {
+            $('#resultList').empty();
+            if (results.length === 0) {
+                let li =     `
+                <li class="resultSong"><i class="svg svg-search"></i><span>没有结果</span></li>
                 `;
-                searchResults.insertAdjacentHTML('beforeend', li)
+                resultList.insertAdjacentHTML('beforeend', li)
+            } else {
+                for (let i = 0; i < results.length; i++) {
+                    let song = results[i].attributes;
+                    let li =
+                        `
+                <li class="resultSong"><i class="svg svg-search"></i><span>${song.name} - ${song.singer}</span></li>
+                `;
+                    resultList.insertAdjacentHTML('beforeend', li)
+                }
             }
-        }
-    })
+        });
+        $('#searchResults').removeClass('hide');
+        $('#searchLink').text(`搜索"${value}"`)
+    }
+
+
 });
 
 

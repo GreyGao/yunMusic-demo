@@ -61,6 +61,9 @@
 .songInfo > .songTitle > .songDesc { padding-left: 4px; font-size: 17px; color: #888; }
 .songInfo > .singer { font-size: 12px; color: #888; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .songInfo > .playButton { position: absolute; right: 10px; top: 17px;}
+.songInfo::after { content: ''; display: block; position: absolute; top: -50%; left: -50%;
+    width: 200%; height: 200%; transform: scale(0.5); border-bottom: 1px solid rgba(0, 0, 0, .1); }
+
 
 
 /*icon*/
@@ -117,6 +120,8 @@
 
 
 /*SearchPage 搜索 searchBar*/
+.search > .hide{display:none;}
+
 .searchBar { padding: 15px 10px; position: relative; }
 .searchBar::after { content: ''; display: block; position: absolute; top: -50%; left: -50%;
     width: 200%; height: 200%; transform: scale(0.5); border-bottom: 1px solid rgba(0, 0, 0, .1); z-index: -1; }
@@ -127,12 +132,25 @@
     margin-top: 5px; color: #c9c9c9; top: 0; pointer-events: none; }
 .searchBar > .input-wrapper > .svg-search { position: absolute; left: 8px; top: 9px; vertical-align: middle; }
 
+
 /*SearchPage 搜索 searchTips*/
 .searchTips{padding: 15px 30px 15px 10px;}
 .searchTips > h5{color:#666;font-size:12px;line-height: 12px;}
 .searchTips > .hotSearchList {margin:10px 0 7px;}
-.searchTips > .hotSearchList > .hotSearch {display:inline-block;padding:5px 14px;position: relative;margin:0 6px 8px 0;
+.searchTips > .hotSearchList > .hotSearch {display:inline-block;padding:5px 14px;position: relative;margin:0 6px 9px 0;
 font-size:14px;}
 .searchTips > .hotSearchList > .hotSearch::after{ content: "";display:block;
     border: 1px solid rgba(0,0,0,.1); border-color: #d3d4da; border-radius: 32px;width: 200%;
     position: absolute;top: -50%; left: -50%;height: 200%;transform: scale(.5);}
+
+/*SearchPage 搜索 searchResults*/
+.searchResults{padding:0 10px }
+.searchLink { padding:14px 0;position: relative;color: #507daf;}
+.searchLink::after{ content: ''; display: block; position: absolute; top: -50%; left: -50%;
+    width: 200%; height: 200%; transform: scale(0.5); border-bottom: 1px solid rgba(0, 0, 0, .1); }
+.resultList-wrapper{padding-left:23px;}
+.resultList > .resultSong{padding:12px 0 11px;position: relative;}
+.resultList > .resultSong::after{content: ''; display: block; position: absolute; top: -50%; left: -50%;
+    width: 200%; height: 200%; transform: scale(0.5); border-bottom: 1px solid rgba(0, 0, 0, .1); }
+.resultList > .resultSong>.svg-search{width:15px;height:15px;position: absolute;left:-23px;top:15px;
+    color:#111 }
