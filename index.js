@@ -21,20 +21,6 @@ AV.init({
     appKey: APP_KEY
 });
 
-
-// 添加歌曲数据库部分
-// var Song = AV.Object.extend('Song');    //选择表名
-// var song = new Song();                  //创建一个实例
-// song.save({                             //数据内容信息
-//     name: "おとなの掟",
-//     des:"（成人法则）",
-//     singer:"Doughnuts Hole",
-//     album:"おとなの掟",
-//     url:"http://oval41e32.bkt.clouddn.com/%E6%88%90%E4%BA%BA%E6%B3%95%E5%88%99.mp3"
-// }).then(function(object) {
-//     alert('保存成功');
-// });
-
 // 歌单列表获取
 let newSongsList = document.querySelector('#newSongsList');
 let query = new AV.Query('Song');
@@ -53,7 +39,6 @@ query.find().then(function (results) {
 }, function (error) {
     alert('获取歌曲失败')
 });
-
 
 // 歌曲搜索
 let searchResults = document.querySelector('#searchResults');
@@ -80,3 +65,17 @@ $('input#searchSong').on('input',function (e) {
         }
     })
 });
+
+
+// 添加歌曲数据库API
+// var Song = AV.Object.extend('Song');    //选择表名
+// var song = new Song();                  //创建一个实例
+// song.save({                             //数据内容信息
+//     name: "Calling to The Night",
+//     des:"",
+//     singer:"Natasha Farrow",
+//     album:"METAL GEAR SOLID VOCAL TRACKS",
+//     url:"http://oval41e32.bkt.clouddn.com/Calling%20to%20The%20Night.mp3"
+// }).then(function(object) {
+//     alert('保存成功');
+// });
