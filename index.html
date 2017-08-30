@@ -31,7 +31,7 @@
     <!--主页面-->
     <section class="mainPages">
         <!--推荐音乐-->
-        <div class="recommends mainPage">
+        <div class="recommends mainPage active">
             <!--推荐歌单-->
             <h2 class="recSongs rec-titles">推荐歌单</h2>
             <ul class="albums">
@@ -78,11 +78,7 @@
                 <div class="line-scale-party"><div></div><div></div><div></div><div></div></div>
             </div>
             <div class="newSongsList" id="newSongsList">
-                <a href="http://music.163.com/m/song?id=458725738" class="songInfo">
-                    <p class="songTitle">十冷进行曲<span class="songDesc">(电影《十万个冷笑话2》战斗版推广曲)</span></p>
-                    <p class="singer"><i class="icon icon-sq"></i>戴荃 - 十冷进行曲</p>
-                    <div class="playButton"><i class="icon icon-play"></i></div>
-                </a>
+
             </div>
             <!--App推荐-->
             <footer class="footer-wrapper">
@@ -209,7 +205,7 @@
             </div>
         </div>
         <!--搜索-->
-        <div class="search mainPage active">
+        <div class="search mainPage">
             <!--搜索栏-->
             <div class="searchBar">
                 <div class="input-wrapper">
@@ -231,10 +227,10 @@
             </div>
             <!--搜索提示-->
             <div class="searchTips" id="searchTips">
-                <h5>热门搜索</h5>
-                <ul class="hotSearchList">
+                <h5 class="searchTitle">热门搜索</h5>
+                <ul class="hotSearchList" id="hotSearchList">
                     <li class="hotSearch">
-                        <a href="">成人法则</a>
+                        成人法则
                     </li>
                     <li class="hotSearch">
                         <a href="">METAL GEAR</a>
@@ -249,6 +245,14 @@
                         <a href="">Taylor Swift</a>
                     </li>
                 </ul>
+            </div>
+            <!--最佳匹配-->
+            <div class="resultMatch hide">
+                <h5 class="searchTitle">最佳匹配</h5>
+                <div class="matchSongList-wrapper">
+                    <div class="matchSongList" id="matchSongList">
+                    </div>
+                </div>
             </div>
 
         </div>
