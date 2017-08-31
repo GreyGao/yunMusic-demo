@@ -5,16 +5,36 @@
     <title>播放页面</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./play.css">
 </head>
 <body>
+<div class="playPage">
     <div class="play-wrapper">
         <div class="song-wrapper">
-
+            <div class="song-disc">
+                <div class="song-turn">
+                    <div class="song-img">
+                        <img class="song-cover" src="https://i.loli.net/2017/08/31/59a7a44ee0c98.jpg">
+                    </div>
+                </div>
+                <div class="playButton"></div>
+            </div>
         </div>
-        <div class="song-info"></div>
-        <div class="footer-wrapper"></div>
+        <div class="song-info">
+            <h2><span class="song-name">おとなの掟</span> - <span class="song-singer">Doughnuts Hole</span></h2>
+            <div class="song-lyric"></div>
+        </div>
+        <div class="footer-wrapper">
+            <div class="footer">
+                <span class="button-open button">打 开</span>
+                <span class="button-download button">下 载</span>
+            </div>
+        </div>
     </div>
+</div>
+<div class="play-background"></div>
+</div>
 </body>
 <script src="vendors/jquery.min.js"></script>
 </html>
