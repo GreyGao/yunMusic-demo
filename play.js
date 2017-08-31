@@ -22,13 +22,52 @@ query.get(id).then(function(results){
     let name = song.name;
     let singer = song.singer;
     let img = song.image;
+    let url = song.url;
     $("#songCover").attr("src",img);
     $("#songName").text(name);
     $("#songSinger").text(singer);
-    $("#songSpace").text(" - ")
+    $("#songSpace").text(" - ");
     $("#playBg").css('background',`url(${img}) no-repeat`)
-        .css('background-position',"50%").css('background-size',"auto 100%")
+        .css('background-position',"50%").css('background-size',"auto 100%");
+    $('#songSrc').attr("src",url)
 });
 
 
+// let music = document.getElementById('songSrc');
+// let currentTime = music.currentTime;
+// let duration = music.duration;
+// if(currentTime >= duration){
+//     $('.song-img').toggleClass('song-img spin-stop');
+//     $('.song-circle').toggleClass('spin-run spin-stop');
+//     $('#playButton').removeClass('hide')
+// }else{
+//     console.log('小')
+// }
 
+function musicPlayer() {
+    let music = document.createElement('audio');
+    music.id="songSrc";
+    document.body.appendChild(music);
+    music.play();
+    if(music.ended){
+        $('.song-img').toggleClass('spin-run spin-stop');
+        $('.song-circle').toggleClass('spin-run spin-stop');
+        $('#playButton').removeClass('hide')
+    }
+
+    //暂停功能，还没想好
+    $('#playButton').on('click',function () {
+        if(music.paused){
+            music.play();
+            $('.song-img').toggleClass('spin-run spin-stop');
+            $('.song-circle').toggleClass('spin-run spin-stop');
+        }else if(music.play()){
+            music.pause();
+            $('.song-img').toggleClass('spin-run spin-stop');
+            $('.song-circle').toggleClass('spin-run spin-stop');
+        }
+    })
+
+
+}
+musicPlayer()
