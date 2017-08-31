@@ -61,9 +61,11 @@ function inputChange(e) {
     $('.resultMatch').addClass('hide');
     $('#searchResults').addClass('hide');
     $('#search-holder').text('');
-
+    if(timer){window.clearTimeout(timer)}
+    timer = setTimeout(function () {
+        timer = null;
         let $input = $(e.currentTarget);
-        let value = $input.val().trim();
+        let value = $input.val();
         let nameQuery = new AV.Query('Song');
         nameQuery.contains('name', value);
         let singerQuery = new AV.Query('Song');
@@ -80,9 +82,8 @@ function inputChange(e) {
             $('#searchResults').removeClass('hide');
             $('#searchLink').text(`搜索"${value}"`)
             $('#searchTips').addClass('hide');
-            if(timer){window.clearTimeout(timer)}
-            timer = setTimeout(function () {
-                timer = null;
+            $('#resultList').empty();
+
             query.find().then(function (results) {
                 $('#resultList').empty();
                 if (results.length === 0) {
@@ -101,9 +102,9 @@ function inputChange(e) {
                     }
                 }
             });
-            }, 400)
-        }
 
+        }
+    }, 350)
 }
 
 function hotSongLink(e) {
@@ -114,7 +115,7 @@ function hotSongLink(e) {
 
 function searchSubmit(e){
     let $input = $(e.currentTarget);
-    let value = $input.val().trim();
+    let value = $input.val();
     matchSongList(value);
     $('#searchResults').addClass('hide')
 }
@@ -127,6 +128,9 @@ function matchSongList(value) {
         let matchSongList = document.querySelector('#matchSongList');
         $('input#searchSong').val(value);
         $('#search-holder').text('');
+        if(timer){window.clearTimeout(timer)}
+        timer = setTimeout(function () {
+            timer = null;
         let nameQuery = new AV.Query('Song');
         nameQuery.contains('name', value);
         let singerQuery = new AV.Query('Song');
@@ -136,9 +140,6 @@ function matchSongList(value) {
         let desQuery = new AV.Query('Song');
         desQuery.contains('des', value);
         let query = AV.Query.or(nameQuery, singerQuery, albumQuery, desQuery);
-        if(timer){window.clearTimeout(timer)}
-        timer = setTimeout(function () {
-            timer = null;
         query.find().then(function (results) {
             if (results.length === 0) {
                 $('#matchSongList').empty();
@@ -160,7 +161,7 @@ function matchSongList(value) {
                 }
             }
         })
-        }, 400)
+        }, 350)
     }
 }
 
