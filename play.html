@@ -15,14 +15,14 @@
             <div class="song-disc">
                 <div class="song-turn">
                     <div class="song-img">
-                        <img class="song-cover" src="https://i.loli.net/2017/08/31/59a7a44ee0c98.jpg">
+                        <img class="song-cover" id="songCover" src="">
                     </div>
                 </div>
                 <div class="playButton"></div>
             </div>
         </div>
         <div class="song-info">
-            <h2><span class="song-name">おとなの掟</span> - <span class="song-singer">Doughnuts Hole</span></h2>
+            <h2><span class="song-name" id="songName"></span><span id="songSpace"></span><span class="song-singer" id="songSinger"></span></h2>
             <div class="song-lyric"></div>
         </div>
         <div class="footer-wrapper">
@@ -33,8 +33,10 @@
         </div>
     </div>
 </div>
-<div class="play-background"></div>
+<div class="play-background" id="playBg"></div>
 </div>
 </body>
 <script src="vendors/jquery.min.js"></script>
+<script src="vendors/av-min.js"></script>
+<script src="play.js"></script>
 </html>

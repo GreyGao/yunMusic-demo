@@ -3,13 +3,12 @@ body{overflow: hidden;}
 
 /*背景层*/
 .play-background{
-    position: absolute;    top:0; left:0; right:0; bottom:0; filter:blur(20px);
-    background: url(https://i.loli.net/2017/08/31/59a7a44ee0c98.jpg) no-repeat;background-position: 50%;
-    background-size: auto 100%;
+    position: absolute;    top:0; left:0; right:0; bottom:0; filter:blur(10px);
+    background-position: 50%; background-size: auto 100%;
     z-index: -1; transform: scale(1.5); transform-origin: center top; transition: opacity .3s linear; }
 .play-background::after{
     content: ""; display: block;  position: absolute; top:0; left:0; right:0; bottom:0;
-    z-index: 1; background-color: hsla(0,100%,0%,0.55); }
+    z-index: 1; background-color: hsla(0,100%,0%,0.5); }
 
 /*播放器层*/
 .song-wrapper{padding-top: 63px; }
