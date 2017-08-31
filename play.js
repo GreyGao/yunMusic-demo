@@ -24,6 +24,7 @@ query.get(id).then(function(results){
     let img = song.image;
     let url = song.url;
     let lyric = song.lyric;
+    $('title').html(`${name}-${singer}-在线试听`);
     $("#songCover").attr("src",img);
     $("#songName").text(name);
     $("#songSinger").text(singer);
@@ -59,16 +60,20 @@ function musicPlayer() {
             music.play();
             $('.song-img').toggleClass('spin-run spin-stop');
             $('.song-circle').toggleClass('spin-run spin-stop');
+            $('#songPin').toggleClass('pin-stop');
         }else if(music.play()){
             music.pause();
             $('.song-img').toggleClass('spin-run spin-stop');
             $('.song-circle').toggleClass('spin-run spin-stop');
+            $('#songPin').toggleClass('pin-stop');
         }
     });
     music.addEventListener('ended',function () {
         $('.song-img').toggleClass('spin-run spin-stop');
         $('.song-circle').toggleClass('spin-run spin-stop');
         $('#playButton').removeClass('hide')
+        $('#songPin').toggleClass('pin-stop');
+
     });
     setInterval(function(){
         let seconds = music.currentTime;
