@@ -23,6 +23,7 @@ query.get(id).then(function(results){
     let singer = song.singer;
     let img = song.image;
     let url = song.url;
+    let lyric = song.lyric;
     $("#songCover").attr("src",img);
     $("#songName").text(name);
     $("#songSinger").text(singer);
@@ -30,6 +31,8 @@ query.get(id).then(function(results){
     $("#playBg").css('background',`url(${img}) no-repeat`)
         .css('background-position',"50%").css('background-size',"auto 100%");
     $('#songSrc').attr("src",url)
+
+    parseLyric(lyric);
 });
 
 
@@ -49,11 +52,6 @@ function musicPlayer() {
     music.id="songSrc";
     document.body.appendChild(music);
     music.play();
-    if(music.ended){
-        $('.song-img').toggleClass('spin-run spin-stop');
-        $('.song-circle').toggleClass('spin-run spin-stop');
-        $('#playButton').removeClass('hide')
-    }
 
     //暂停功能，还没想好
     $('#playButton').on('click',function () {
@@ -66,8 +64,57 @@ function musicPlayer() {
             $('.song-img').toggleClass('spin-run spin-stop');
             $('.song-circle').toggleClass('spin-run spin-stop');
         }
-    })
-
-
+    });
+    music.addEventListener('ended',function () {
+        $('.song-img').toggleClass('spin-run spin-stop');
+        $('.song-circle').toggleClass('spin-run spin-stop');
+        $('#playButton').removeClass('hide')
+    });
+    setInterval(function(){
+        let seconds = music.currentTime;
+        let munites = ~~(seconds / 60);
+        let left = seconds - munites * 60;
+        let time = `${pad(munites)}:${pad(left)}`;
+        let $lines = $('.lines >p');
+        let $whichLine;
+        for(let i=0;i<$lines.length;i++){
+            let currentLineTime = $lines.eq(i).attr('data-time');
+            let nextLineTime = $lines.eq(i+1).attr('data-time');
+            if($lines.eq(i+1).length !==0 && currentLineTime < time && nextLineTime > time){
+                $whichLine = $lines.eq(i)
+            }
+        }
+        if($whichLine){
+            $whichLine.addClass('active').prev().removeClass('active');
+            let top = $whichLine.offset().top;
+            let linesTop = $('.lines').offset().top;
+            let delta = Math.floor(top - linesTop - $('.song-lyric').height()/3);
+            $('.lines').css('transform',`translateY(-${delta}px)`)
+        }
+    },300);
 }
-musicPlayer()
+
+function parseLyric(lyric) {
+    let array = lyric.split('\n');
+    let regex = /^\[(.+)\](.*)$/;
+    array = array.map(function (string, index) {
+        let matches = string.match(regex);
+        if (matches) {
+            return {time: matches[1], words: matches[2]}
+        }
+    });
+    let $lyriclines = $('.lines');
+    array.map(function (object) {
+        if (!object) {
+            return
+        }
+        let $p = $('<p/>');
+        $p.attr('data-time', object.time).text(object.words);
+        $lyriclines.append($p)
+    })
+}
+
+function pad(number){
+    return number >=10 ? number + '' : '0' + number
+}
+musicPlayer();

@@ -56,3 +56,9 @@ body{overflow: hidden;}
     background-color: #fff; margin: 0 5px; }
 .button-download { color: #fff; background-color: #d43b32; border-color: #d43b32; }
 .button-open { background-color: transparent; color: #d43b32; border-color: #d43b32; }
+
+/*歌词lyric*/
+.song-lyric{ height: 67px; line-height: 1.8; margin-top: 14px; font-size: 13px; overflow: hidden;
+    text-align: center; color: hsla(0,0%,100%,.6);}
+.lines{z-index:4;transition: transform 0.3s;}
+.song-lyric > .lines> .active{ color:#fff}
