@@ -14,7 +14,7 @@ body{overflow: hidden;}
 /*播放器层*/
 .song-wrapper{padding-top: 63px; }
 .song-disc{position: relative; width: 248px; height: 248px; margin: 0 auto; }
-.song-pin{ position: absolute; top: -63px; left: 107px; z-index: 5; width: 84px; height: 122px;
+.song-pin{ position: absolute; top: -70px; left: 107px; z-index: 5; width: 84px; height: 122px;
     background: url(https://i.loli.net/2017/08/27/59a2410ddb21b.png) no-repeat; background-size: contain;
     transition: transform 0.6s;transform: rotate(0deg);transform-origin: 9% -2%; }
 .song-disc > .pin-stop{ transform: rotate(-25deg); transform-origin: 9% -2%; transition: transform 0.6s;}
