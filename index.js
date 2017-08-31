@@ -46,7 +46,8 @@ $('input#searchSong').bind('input',function (e) {
     inputChange(e)
 }).bind('focus',function (e) {
     inputChange(e)
-}).bind('keypress',function (e) {
+})
+    .bind('keypress',function (e) {
     searchSubmit(e)
 });
 
@@ -60,9 +61,7 @@ function inputChange(e) {
     $('.resultMatch').addClass('hide');
     $('#searchResults').addClass('hide');
     $('#search-holder').text('');
-    if(timer){window.clearTimeout(timer)}
-    timer = setTimeout(function () {
-        timer = null;
+
         let $input = $(e.currentTarget);
         let value = $input.val().trim();
         let nameQuery = new AV.Query('Song');
@@ -78,7 +77,12 @@ function inputChange(e) {
             $('#search-holder').text('搜索歌曲、歌手、专辑');
             $('#searchTips').removeClass('hide');
         } else {
+            $('#searchResults').removeClass('hide');
+            $('#searchLink').text(`搜索"${value}"`)
             $('#searchTips').addClass('hide');
+            if(timer){window.clearTimeout(timer)}
+            timer = setTimeout(function () {
+                timer = null;
             query.find().then(function (results) {
                 $('#resultList').empty();
                 if (results.length === 0) {
@@ -97,10 +101,9 @@ function inputChange(e) {
                     }
                 }
             });
-            $('#searchResults').removeClass('hide');
-            $('#searchLink').text(`搜索"${value}"`)
+            }, 400)
         }
-    },300)
+
 }
 
 function hotSongLink(e) {
@@ -133,6 +136,9 @@ function matchSongList(value) {
         let desQuery = new AV.Query('Song');
         desQuery.contains('des', value);
         let query = AV.Query.or(nameQuery, singerQuery, albumQuery, desQuery);
+        if(timer){window.clearTimeout(timer)}
+        timer = setTimeout(function () {
+            timer = null;
         query.find().then(function (results) {
             if (results.length === 0) {
                 $('#matchSongList').empty();
@@ -154,6 +160,7 @@ function matchSongList(value) {
                 }
             }
         })
+        }, 400)
     }
 }
 
