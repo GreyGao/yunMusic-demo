@@ -31,7 +31,7 @@ query.find().then(function (results) {
         let song = results[i].attributes;
         console.log(results[i].id)
         let li =
-            `<a href=/play.html?id=${results[i].id} class="songInfo">
+            `<a href=/yunMusic-demo/play.html?id=${results[i].id} class="songInfo">
                     <p class="songTitle">${song.name}<span class="songDesc">${song.des}</span></p>
                     <p class="singer"><i class="icon icon-sq"></i>${song.singer} - ${song.album}</p>
                     <div class="playButton"><i class="icon icon-play"></i></div>
