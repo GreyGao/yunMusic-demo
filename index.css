@@ -153,12 +153,13 @@ font-size:14px;}
 .searchLink::after{ content: ''; display: block; position: absolute; top: -50%; left: -50%;
     width: 200%; height: 200%; transform: scale(0.5); border-bottom: 1px solid rgba(0, 0, 0, .1); }
 .resultList-wrapper{padding-left:23px;}
-.resultList > .resultSong{padding:12px 0 11px;position: relative;}
+.resultList > .resultSong{padding:12px 0 11px;position: relative;display: block;  }
+.resultList > .resultSong>span{white-space: nowrap; overflow: hidden; }
 .resultList > .resultSong::after{content: ''; display: block; position: absolute; top: -50%; left: -50%;
     width: 200%; height: 200%; transform: scale(0.5); border-bottom: 1px solid rgba(0, 0, 0, .1); }
 .resultList > .resultSong>.svg-search{width:15px;height:15px;position: absolute;left:-23px;top:15px;
     color:#111 }
 
 /*SearchPage 搜索 matchResults*/
-.resultMatch{padding: 10px 30px 15px 10px;}
+.resultMatch{padding: 10px 0 15px 10px;}
 .matchSongList>p{padding:10px 0;text-align: center;font-size:14px;}

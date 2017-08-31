@@ -28,8 +28,9 @@ query.find().then(function (results) {
     $('#loading-music').remove();
     for(let i=0; i<results.length;i++){
         let song = results[i].attributes;
+        console.log(results[i].id)
         let li =
-            `<a href=${song.url} class="songInfo">
+            `<a href=/play.html?id=${results[i].id} class="songInfo">
                     <p class="songTitle">${song.name}<span class="songDesc">${song.des}</span></p>
                     <p class="singer"><i class="icon icon-sq"></i>${song.singer} - ${song.album}</p>
                     <div class="playButton"><i class="icon icon-play"></i></div>
@@ -90,7 +91,7 @@ function inputChange(e) {
                 $('#resultList').empty();
                 if (results.length === 0) {
                     let li = `
-                <li class="resultSong"><i class="svg svg-search"></i><span>没有结果</span></li>
+                <a class="resultSong"><i class="svg svg-search"></i><span>没有结果</span></a>
                 `;
                     resultList.insertAdjacentHTML('beforeend', li)
                 } else {
@@ -98,7 +99,7 @@ function inputChange(e) {
                         let song = results[i].attributes;
                         let li =
                             `
-                <li class="resultSong"><i class="svg svg-search"></i><span>${song.name} - ${song.singer}</span></li>
+                <a href=/play.html?id=${results[i].id} class="resultSong"><i class="svg svg-search"></i><span>${song.name} - ${song.singer}</span></a>
                 `;
                         resultList.insertAdjacentHTML('beforeend', li)
                     }
@@ -153,12 +154,11 @@ function matchSongList(value) {
                 for (let i = 0; i < results.length; i++) {
                     let song = results[i].attributes;
                     let div =
-                        `<div class="songInfo">
-             <p class="songTitle">${song.name}<span class="songDesc">${song.des}</span></p>
-                            <p class="singer"><i class="icon icon-sq"></i>${song.singer} - ${song.album}</p>
-                            <div class="playButton"><i class="icon icon-play"></i></div>   
-                
-            `;
+                        `<a href=/play.html?id=${results[i].id} class="songInfo">
+                    <p class="songTitle">${song.name}<span class="songDesc">${song.des}</span></p>
+                    <p class="singer"><i class="icon icon-sq"></i>${song.singer} - ${song.album}</p>
+                    <div class="playButton"><i class="icon icon-play"></i></div>
+                    </a>`;
                     matchSongList.insertAdjacentHTML('beforeend', div)
                 }
             }
