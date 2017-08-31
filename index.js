@@ -101,7 +101,7 @@ function inputChange(e) {
                         let song = results[i].attributes;
                         let li =
                             `
-                <a href=/play.html?id=${results[i].id} class="resultSong"><i class="svg svg-search"></i><span>${song.name} - ${song.singer}</span></a>
+                <a href=/yunMusic-demo/play.html?id=${results[i].id} class="resultSong"><i class="svg svg-search"></i><span>${song.name} - ${song.singer}</span></a>
                 `;
                         resultList.insertAdjacentHTML('beforeend', li)
                     }
@@ -156,7 +156,7 @@ function matchSongList(value) {
                 for (let i = 0; i < results.length; i++) {
                     let song = results[i].attributes;
                     let div =
-                        `<a href=/play.html?id=${results[i].id} class="songInfo">
+                        `<a href=/yunMusic-demo/play.html?id=${results[i].id} class="songInfo">
                     <p class="songTitle">${song.name}<span class="songDesc">${song.des}</span></p>
                     <p class="singer"><i class="icon icon-sq"></i>${song.singer} - ${song.album}</p>
                     <div class="playButton"><i class="icon icon-play"></i></div>
