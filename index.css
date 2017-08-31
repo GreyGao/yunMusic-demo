@@ -120,7 +120,7 @@
 
 
 /*SearchPage 搜索 searchBar*/
-.search > .hide{display:none;}
+.hide{display:none;}
 .searchTitle{color:#666;font-size:12px;line-height: 12px;}
 
 .searchBar { padding: 15px 10px; position: relative; }
@@ -132,6 +132,10 @@
 .searchBar > .input-wrapper > .holder { font-size: 14px; background: transparent; position: absolute; left: 30px;
     margin-top: 5px; color: #c9c9c9; top: 0; pointer-events: none; }
 .searchBar > .input-wrapper > .svg-search { position: absolute; left: 8px; top: 9px; vertical-align: middle; }
+.searchBar > .input-wrapper > .searchClose {position: absolute;right:8px;top:6px;}
+.svg-empty{width: 14px; height: 14px;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyOCAyOCI+PGcgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBmaWxsPSIjYmNiZGJkIiBkPSJNMTQsMGM3LjczMiwwLDE0LDYuMjY4LDE0LDE0YzAsNy43MzItNi4yNjgsMTQtMTQsMTQKCVMwLDIxLjczMiwwLDE0QzAsNi4yNjgsNi4yNjgsMCwxNCwweiIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ViZWNlYiIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCI+PHBhdGggZD0ibTE5IDlsLTEwIDEwIi8+PHBhdGggZD0ibTkgOWwxMCAxMCIvPjwvZz48L2c+PC9zdmc+);}
+
 
 
 /*SearchPage 搜索 searchTips*/

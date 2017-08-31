@@ -61,6 +61,7 @@ function inputChange(e) {
     $('.resultMatch').addClass('hide');
     $('#searchResults').addClass('hide');
     $('#search-holder').text('');
+    $('#searchEmpty').removeClass('hide');
     if(timer){window.clearTimeout(timer)}
     timer = setTimeout(function () {
         timer = null;
@@ -78,9 +79,10 @@ function inputChange(e) {
         if (value.length === 0) {
             $('#search-holder').text('搜索歌曲、歌手、专辑');
             $('#searchTips').removeClass('hide');
+            $('#searchEmpty').addClass('hide')
         } else {
             $('#searchResults').removeClass('hide');
-            $('#searchLink').text(`搜索"${value}"`)
+            $('#searchLink').text(`搜索"${value}"`);
             $('#searchTips').addClass('hide');
             $('#resultList').empty();
 
@@ -165,6 +167,14 @@ function matchSongList(value) {
     }
 }
 
+$('#searchEmpty').on('click',function () {
+    $('input#searchSong').val('');
+    $('#search-holder').text('搜索歌曲、歌手、专辑');
+    $('#searchTips').removeClass('hide');
+    $('#searchEmpty').addClass('hide');
+    $('#searchResults').addClass('hide')
+    $('.resultMatch').addClass('hide');
+});
 
 
 // 添加歌曲数据库API
