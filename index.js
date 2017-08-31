@@ -23,6 +23,7 @@ AV.init({
 
 // 歌单列表获取
 let newSongsList = document.querySelector('#newSongsList');
+let hotSongsList = document.querySelector('#hotSongsList');
 let query = new AV.Query('Song');
 query.find().then(function (results) {
     $('#loading-music').remove();
@@ -35,7 +36,8 @@ query.find().then(function (results) {
                     <p class="singer"><i class="icon icon-sq"></i>${song.singer} - ${song.album}</p>
                     <div class="playButton"><i class="icon icon-play"></i></div>
              </a>`;
-    newSongsList.insertAdjacentHTML('beforeend', li)
+        newSongsList.insertAdjacentHTML('beforeend', li);
+        hotSongsList.insertAdjacentHTML('beforeend', li)
     }
 }, function (error) {
     alert('获取歌曲失败')
@@ -178,14 +180,15 @@ $('#searchEmpty').on('click',function () {
 
 
 // 添加歌曲数据库API
-// var Song = AV.Object.extend('Song');    //选择表名
-// var song = new Song();                  //创建一个实例
-// song.save({                             //数据内容信息
-//     name: "Calling to The Night",
+// var Song = AV.Object.extend('Song');
+// var song = new Song();
+// song.save({
+//     name: "Hotel California",
 //     des:"",
-//     singer:"Natasha Farrow",
-//     album:"METAL GEAR SOLID VOCAL TRACKS",
-//     url:"http://oval41e32.bkt.clouddn.com/Calling%20to%20The%20Night.mp3"
+//     singer:"Eagles",
+//     album:"Hell Freezes Over (Live)",
+//     url:"http://oval41e32.bkt.clouddn.com/Hotel%20California.mp3",
+//     image:"https://i.loli.net/2017/08/31/59a8178ecc142.jpg"
 // }).then(function(object) {
 //     alert('保存成功');
 // });

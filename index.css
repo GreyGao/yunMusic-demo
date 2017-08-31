@@ -141,8 +141,8 @@
 /*SearchPage 搜索 searchTips*/
 .searchTips{padding: 15px 30px 15px 10px;}
 .searchTips > .hotSearchList {margin:10px 0 7px;}
-.searchTips > .hotSearchList > .hotSearch {display:inline-block;padding:5px 14px;position: relative;margin:0 6px 9px 0;
-font-size:14px;}
+.searchTips > .hotSearchList > .hotSearch {display:inline-block;padding:9px 14px;position: relative;margin:0 6px 9px 0;
+font-size:14px; line-height:14px;}
 .searchTips > .hotSearchList > .hotSearch::after{ content: "";display:block;
     border: 1px solid rgba(0,0,0,.1); border-color: #d3d4da; border-radius: 32px;width: 200%;
     position: absolute;top: -50%; left: -50%;height: 200%;transform: scale(.5);}
