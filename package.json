@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "postcss --use autoprefixer --dir dist src/*.css; babel src/index.js | uglifyjs > dist/index.js; babel src/play.js | uglifyjs > dist/play.js; echo 'success'"
   },
-  "author": "",
+  "author": "GreyGao",
   "license": "ISC",
   "dependencies": {
     "leancloud-storage": "^3.1.1",
@@ -21,6 +22,7 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.3.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-standard": "^3.0.1",
+    "uglifyjs": "^2.4.11"
   }
 }
