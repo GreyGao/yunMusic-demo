@@ -49,8 +49,7 @@ $('input#searchSong').bind('input',function (e) {
     inputChange(e)
 }).bind('focus',function (e) {
     inputChange(e)
-})
-    .bind('keypress',function (e) {
+}).bind('keypress',function (e) {
     searchSubmit(e)
 });
 
@@ -101,7 +100,8 @@ function inputChange(e) {
                         let song = results[i].attributes;
                         let li =
                             `
-                <a href=/yunMusic-demo/play.html?id=${results[i].id} class="resultSong"><i class="svg svg-search"></i><span>${song.name} - ${song.singer}</span></a>
+                <a href=/yunMusic-demo/play.html?id=${results[i].id} class="resultSong">
+                <i class="svg svg-search"></i><span>${song.name} - ${song.singer}</span></a>
                 `;
                         resultList.insertAdjacentHTML('beforeend', li)
                     }
