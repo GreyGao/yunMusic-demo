@@ -29,7 +29,6 @@ query.find().then(function (results) {
     $('#loading-music').remove();
     for(let i=0; i<results.length;i++){
         let song = results[i].attributes;
-        console.log(results[i].id)
         let li =
             `<a href=/yunMusic-demo/play.html?id=${results[i].id} class="songInfo">
                     <p class="songTitle">${song.name}<span class="songDesc">${song.des}</span></p>
@@ -40,7 +39,8 @@ query.find().then(function (results) {
         hotSongsList.insertAdjacentHTML('beforeend', li)
     }
 }, function (error) {
-    alert('获取歌曲失败')
+    alert('获取歌曲失败');
+    alert(error)
 });
 
 // 歌曲搜索
@@ -126,8 +126,7 @@ function searchSubmit(e){
 }
 
 function matchSongList(value) {
-    if (value.length === 0) {
-    } else {
+    if (value.length != 0) {
         $('.resultMatch').removeClass('hide');
         $('#searchTips').addClass('hide');
         let matchSongList = document.querySelector('#matchSongList');
