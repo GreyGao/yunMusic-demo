@@ -1,3 +1,8 @@
+let id = getParameterByName('id');
+let query = new AV.Query('Song');
+query.get(id).then(songInfoSet);
+musicPlayer();
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -7,38 +12,18 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
-let id = getParameterByName('id');
-let query = new AV.Query('Song');
-query.get(id).then(function(results){
+function songInfoSet(results){
     let song = results.attributes;
-    let name = song.name;
-    let singer = song.singer;
-    let img = song.image;
-    let url = song.url;
-    let lyric = song.lyric;
-    $('title').html(`${name}-${singer}-在线试听`);
-    $("#songCover").attr("src",img);
-    $("#songName").text(name);
-    $("#songSinger").text(singer);
+    $('title').html(`${song.name}-${song.singer}-在线试听`);
+    $("#songCover").attr("src",song.image);
+    $("#songName").text(song.name);
+    $("#songSinger").text(song.singer);
     $("#songSpace").text(" - ");
-    $("#playBg").css('background',`url(${img}) no-repeat`)
+    $("#playBg").css('background',`url(${song.image}) no-repeat`)
         .css('background-position',"50%").css('background-size',"auto 100%");
-    $('#songSrc').attr("src",url)
-
-    parseLyric(lyric);
-});
-
-
-// let music = document.getElementById('songSrc');
-// let currentTime = music.currentTime;
-// let duration = music.duration;
-// if(currentTime >= duration){
-//     $('.song-img').toggleClass('song-img spin-stop');
-//     $('.song-circle').toggleClass('spin-run spin-stop');
-//     $('#playButton').removeClass('hide')
-// }else{
-//     console.log('小')
-// }
+    $('#songSrc').attr("src",song.url);
+    parseLyric(song.lyric);
+}
 
 function musicPlayer() {
     let music = document.createElement('audio');
@@ -46,27 +31,25 @@ function musicPlayer() {
     document.body.appendChild(music);
     music.play();
 
-    //暂停功能，还没想好
     $('#playButton').on('click',function () {
         if(music.paused){
             music.play();
-            $('.song-img').toggleClass('spin-run spin-stop');
-            $('.song-circle').toggleClass('spin-run spin-stop');
-            $('#songPin').toggleClass('pin-stop');
+            musicPauseSet()
         }else if(music.play()){
             music.pause();
-            $('.song-img').toggleClass('spin-run spin-stop');
-            $('.song-circle').toggleClass('spin-run spin-stop');
-            $('#songPin').toggleClass('pin-stop');
+            musicPauseSet()
         }
     });
     music.addEventListener('ended',function () {
+        musicPauseSet()
+    });
+
+    function musicPauseSet(){
         $('.song-img').toggleClass('spin-run spin-stop');
         $('.song-circle').toggleClass('spin-run spin-stop');
-        $('#playButton').removeClass('hide')
         $('#songPin').toggleClass('pin-stop');
+    }
 
-    });
     setInterval(function(){
         let seconds = music.currentTime;
         let munites = ~~(seconds / 60);
@@ -114,4 +97,3 @@ function parseLyric(lyric) {
 function pad(number){
     return number >=10 ? number + '' : '0' + number
 }
-musicPlayer();
