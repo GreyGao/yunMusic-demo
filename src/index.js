@@ -12,36 +12,63 @@ function pageGo(index){
         .siblings().removeClass('active')
 }
 
+
+
+
+
 // leanCloud 初始化
-var APP_ID = 'zKM1TH8kc8MSMoh0pd6NcUYY-gzGzoHsz';
-var APP_KEY = 'SutiQq6E6jY1WAwkDOgK4RpB';
+!function (){
+    var APP_ID = 'zKM1TH8kc8MSMoh0pd6NcUYY-gzGzoHsz';
+    var APP_KEY = 'SutiQq6E6jY1WAwkDOgK4RpB';
 
-AV.init({
-    appId: APP_ID,
-    appKey: APP_KEY
-});
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+}();
 
-// 歌单列表获取
-let newSongsList = document.querySelector('#newSongsList');
-let hotSongsList = document.querySelector('#hotSongsList');
-let query = new AV.Query('Song');
-query.find().then(function (results) {
-    $('#loading-music').remove();
-    for(let i=0; i<results.length;i++){
-        let song = results[i].attributes;
-        let li =
-            `<a href=/yunMusic-demo/play.html?id=${results[i].id} class="songInfo">
+function loadSongs() {
+    getSongs().then(fillSongs, function (error) {
+        alert('获取歌曲失败'+error);
+    });
+
+    function getSongs(){
+        let query = new AV.Query('Song');
+        return query.find()
+    }
+    function fillSongs(results){
+        $('#loading-music').remove();
+        for(let i=0; i<results.length;i++){
+            let song = results[i].attributes;
+            let li = songTemplate(song,results[i].id);
+            $("#newSongsList").append(li);
+            $("#hotSongsList").append(li);
+        }
+    }
+    function songTemplate(song,id) {
+        return `
+            <a href=/yunMusic-demo/play.html?id=${id} class="songInfo">
                     <p class="songTitle">${song.name}<span class="songDesc">${song.des}</span></p>
                     <p class="singer"><i class="icon icon-sq"></i>${song.singer} - ${song.album}</p>
                     <div class="playButton"><i class="icon icon-play"></i></div>
-             </a>`;
-        newSongsList.insertAdjacentHTML('beforeend', li);
-        hotSongsList.insertAdjacentHTML('beforeend', li)
+             </a>
+        `;
     }
-}, function (error) {
-    alert('获取歌曲失败');
-    alert(error)
-});
+}
+
+loadSongs();
+
+
+
+
+
+
+
+
+
+
+
+
 
 // 歌曲搜索
 let resultList = document.querySelector('#resultList');
