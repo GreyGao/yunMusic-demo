@@ -1,3 +1,4 @@
+define(['jquery','avInit'],function ($,AV) {
 function songSearch(){
     /*------------------------主功能部分------------------------*/
     // input内容事件
@@ -81,7 +82,7 @@ function songSearch(){
         $('#searchTips').removeClass('hide');
         $('#searchResults').addClass('hide');
         $('#resultList').empty();
-        $('#matchSongList').empty();
+
     }
     function onSearch() {
         $('#search-holder').text('');
@@ -133,4 +134,7 @@ function songSearch(){
     }
 }
 
-songSearch();
+// songSearch();
+    return songSearch
+    }
+);

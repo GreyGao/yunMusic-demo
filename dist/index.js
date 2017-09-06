@@ -1,1 +1,1 @@
-"use strict";function pageGo(a){$(".tabs-main").eq(a).addClass("active").siblings().removeClass("active"),$(".mainPage").eq(a).addClass("active").siblings().removeClass("active")}$(".tabs").on("click",".tabs-main",function(a){pageGo($(a.currentTarget).index())}),AV.init({appId:"zKM1TH8kc8MSMoh0pd6NcUYY-gzGzoHsz",appKey:"SutiQq6E6jY1WAwkDOgK4RpB"});
+"use strict";
