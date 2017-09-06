@@ -12,10 +12,6 @@ function pageGo(index){
         .siblings().removeClass('active')
 }
 
-
-
-
-
 // leanCloud 初始化
 !function (){
     var APP_ID = 'zKM1TH8kc8MSMoh0pd6NcUYY-gzGzoHsz';
@@ -26,49 +22,6 @@ function pageGo(index){
         appKey: APP_KEY
     });
 }();
-
-function loadSongs() {
-    getSongs().then(fillSongs, function (error) {
-        alert('获取歌曲失败'+error);
-    });
-
-    function getSongs(){
-        let query = new AV.Query('Song');
-        return query.find()
-    }
-    function fillSongs(results){
-        $('#loading-music').remove();
-        for(let i=0; i<results.length;i++){
-            let song = results[i].attributes;
-            let li = songTemplate(song,results[i].id);
-            $("#newSongsList").append(li);
-            $("#hotSongsList").append(li);
-        }
-    }
-    function songTemplate(song,id) {
-        return `
-            <a href=/yunMusic-demo/play.html?id=${id} class="songInfo">
-                    <p class="songTitle">${song.name}<span class="songDesc">${song.des}</span></p>
-                    <p class="singer"><i class="icon icon-sq"></i>${song.singer} - ${song.album}</p>
-                    <div class="playButton"><i class="icon icon-play"></i></div>
-             </a>
-        `;
-    }
-}
-
-loadSongs();
-
-
-
-
-
-
-
-
-
-
-
-
 
 // 歌曲搜索
 let resultList = document.querySelector('#resultList');
@@ -204,17 +157,3 @@ $('#searchEmpty').on('click',function () {
     $('.resultMatch').addClass('hide');
 });
 
-
-// 添加歌曲数据库API
-// var Song = AV.Object.extend('Song');
-// var song = new Song();
-// song.save({
-//     name: "Hotel California",
-//     des:"",
-//     singer:"Eagles",
-//     album:"Hell Freezes Over (Live)",
-//     url:"http://oval41e32.bkt.clouddn.com/Hotel%20California.mp3",
-//     image:"https://i.loli.net/2017/08/31/59a8178ecc142.jpg"
-// }).then(function(object) {
-//     alert('保存成功');
-// });
