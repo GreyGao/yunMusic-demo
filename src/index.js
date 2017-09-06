@@ -25,6 +25,9 @@ function pageGo(index){
 
 // 歌曲搜索
 function songSearch(){
+
+    /*------------------------主功能部分------------------------*/
+
     // input内容事件
     $('input#searchSong')
         .bind('input',function (e) {
@@ -56,11 +59,6 @@ function songSearch(){
         let value = $(e.currentTarget).val();
         matchSongList(value);
     }
-    $('#searchClose').on('click',function () {
-        clearSearch();
-        $('input#searchSong').val('');
-        $('.resultMatch').addClass('hide');
-    });
 
     // 函数节流
     let timer = null;
@@ -71,6 +69,8 @@ function songSearch(){
             fn(value)
         },time)
     }
+
+    /*---------------------依赖函数部分----------------------*/
 
     function searchInput(e) {
         let value = $(e.currentTarget).val();
@@ -120,7 +120,6 @@ function songSearch(){
         $('.resultMatch').addClass('hide');
         $('#searchResults').removeClass('hide');
     }
-
     function matchSongList(value) {
         onMatch();
         if (value.length != 0) {
@@ -149,7 +148,6 @@ function songSearch(){
             }
         }
     }
-
     function searchTemplate(song,id){
         return `
                 <a href=/yunMusic-demo/play.html?id=${id} class="resultSong">
