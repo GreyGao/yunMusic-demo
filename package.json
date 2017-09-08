@@ -4,9 +4,7 @@
   "description": "A demo for music.163.com mobile web page.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp",
-    "watch": "gulp watch"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "GreyGao",
   "license": "ISC",
@@ -15,19 +13,12 @@
     "loaders.css": "^0.1.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
     "eslint": "^4.6.1",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.3.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.0",
-    "gulp-minify": "^1.0.0",
-    "gulp-postcss": "^7.0.0",
-    "gulp-watch": "^4.3.11"
+    "eslint-plugin-standard": "^3.0.1"
   }
 }
