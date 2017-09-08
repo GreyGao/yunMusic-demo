@@ -1,5 +1,6 @@
-# 网易云音乐移动端页面仿制  
-description:This is a unoffical 'music.163.com' Pages Demo.
+# 网易云音乐移动端页面仿制
+描述：这是一个非官方的网易云音乐手机端播放页面demo.  
+Description:This is a unoffical 'music.163.com' pages demo.
 ## 预览链接 ( Preview Pages ) 
 
 https://greygao.github.io/yunMusic-demo/index.html
@@ -13,7 +14,7 @@ https://greygao.github.io/yunMusic-demo/index.html
   17.08.30 完成播放页面基本功能，优化主页面‘搜索栏’逻辑  
   17.08.27 完成基本页面内容  
 
-## 页面构成
+## 页面构成 ( Pages Content )
 1. 主页面
   - 推荐音乐
   - 热歌榜
@@ -22,8 +23,8 @@ https://greygao.github.io/yunMusic-demo/index.html
   - 音乐播放器
   - 歌词播放器
 
-## 技术
-### 数据库+部署
+## 技术 ( Technologies )
+### 数据库+部署 （Database）
 LeanCloud + 七牛云
-### 页面
+### 页面 （Page）
 原生JS + jQuery + RequireJS
