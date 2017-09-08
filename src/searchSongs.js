@@ -1,5 +1,4 @@
-define(['jquery','avInit'],function ($,AV) {
-function songSearch(){
+export default function searchSongs(){
     /*------------------------主功能部分------------------------*/
     // input内容事件
     $('input#searchSong')
@@ -133,8 +132,3 @@ function songSearch(){
                     </a>`
     }
 }
-
-// songSearch();
-    return songSearch
-    }
-);

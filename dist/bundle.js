@@ -506,20 +506,39 @@ function updateLink (link, options, obj) {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vendors_loaders_min_css__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vendors_loaders_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vendors_loaders_min_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reset_css__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reset_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__reset_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__index_css__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__index_css__);
 
 
+__webpack_require__(3);
 
+__webpack_require__(6);
 
+__webpack_require__(8);
+
+var _avReset = __webpack_require__(10);
+
+var _avReset2 = _interopRequireDefault(_avReset);
+
+var _loadSongs = __webpack_require__(11);
+
+var _loadSongs2 = _interopRequireDefault(_loadSongs);
+
+var _tabs = __webpack_require__(12);
+
+var _tabs2 = _interopRequireDefault(_tabs);
+
+var _searchSongs = __webpack_require__(13);
+
+var _searchSongs2 = _interopRequireDefault(_searchSongs);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _avReset2.default)();
+(0, _tabs2.default)(".tabs", ".mainPages");
+(0, _loadSongs2.default)();
+(0, _searchSongs2.default)();
 
 /***/ }),
 /* 3 */
@@ -750,6 +769,224 @@ exports.push([module.i, "/*default background red: #D43C33 */\n/*default backgro
 
 // exports
 
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = avReset;
+function avReset() {
+    var APP_ID = 'zKM1TH8kc8MSMoh0pd6NcUYY-gzGzoHsz';
+    var APP_KEY = 'SutiQq6E6jY1WAwkDOgK4RpB';
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+}
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = loadSongs;
+function loadSongs() {
+    getSongs().then(fillSongs, function (error) {
+        alert('获取歌曲失败' + error);
+    });
+    function getSongs() {
+        var query = new AV.Query('Song');
+        return query.find();
+    }
+
+    function fillSongs(results) {
+        $('#loading-music').remove();
+        for (var i = 0; i < results.length; i++) {
+            var song = results[i].attributes;
+            var li = songTemplate(song, results[i].id);
+            $("#newSongsList").append(li);
+            $("#hotSongsList").append(li);
+        }
+    }
+
+    function songTemplate(song, id) {
+        return '\n            <a href=/yunMusic-demo/play.html?id=' + id + ' class="songInfo">\n                    <p class="songTitle">' + song.name + '<span class="songDesc">' + song.des + '</span></p>\n                    <p class="singer"><i class="icon icon-sq"></i>' + song.singer + ' - ' + song.album + '</p>\n                    <div class="playButton"><i class="icon icon-play"></i></div>\n             </a>\n        ';
+    }
+}
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = tab;
+function tab(tabSelector, pageSelector) {
+    $(tabSelector).on('click', 'li', function (e) {
+        var $li = $(e.currentTarget);
+        var index = $li.index();
+        pageGo(index);
+    });
+    function pageGo(index) {
+        $(tabSelector + '>li').eq(index).addClass('active').siblings().removeClass('active');
+        $(pageSelector + '>div').eq(index).addClass('active').siblings().removeClass('active');
+    }
+}
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = searchSongs;
+function searchSongs() {
+    /*------------------------主功能部分------------------------*/
+    // input内容事件
+    $('input#searchSong').bind('input', function (e) {
+        inputChange(e);
+    }).bind('focus', function (e) {
+        inputChange(e);
+    }).bind('keypress', function (e) {
+        searchSubmit(e);
+    });
+    // input清空
+    $('#searchClose').on('click', function () {
+        clearSearch();
+        $('input#searchSong').val('');
+        $('.resultMatch').addClass('hide');
+    });
+    // 热门标签跳转
+    $('#hotSearchList').on('click', 'li', function (e) {
+        var value = $(e.currentTarget).text().trim();
+        matchSongList(value);
+    });
+    // 搜索结果显示
+    function inputChange(e) {
+        onSearch();
+        throttle(e, 350, searchInput);
+    }
+    //最佳匹配结果显示
+    function searchSubmit(e) {
+        $('#searchResults').addClass('hide');
+        var value = $(e.currentTarget).val();
+        matchSongList(value);
+    }
+    // 函数节流
+    var timer = null;
+    function throttle(value, time, fn) {
+        if (timer) {
+            window.clearTimeout(timer);
+        }
+        timer = setTimeout(function () {
+            timer = null;
+            fn(value);
+        }, time);
+    }
+
+    /*---------------------依赖函数部分----------------------*/
+    function searchInput(e) {
+        var value = $(e.currentTarget).val();
+        if (value.length === 0) {
+            clearSearch();
+        } else {
+            $('#searchLink').text('\u641C\u7D22"' + value + '"');
+            searchSongs(value).then(fillSearchResults);
+        }
+    }
+    function searchSongs(value) {
+        var nameQuery = new AV.Query('Song');
+        nameQuery.contains('name', value);
+        var singerQuery = new AV.Query('Song');
+        singerQuery.contains('singer', value);
+        var albumQuery = new AV.Query('Song');
+        albumQuery.contains('album', value);
+        var desQuery = new AV.Query('Song');
+        desQuery.contains('des', value);
+        var query = AV.Query.or(nameQuery, singerQuery, albumQuery, desQuery);
+        return query.find();
+    }
+    function fillSearchResults(results) {
+        $('#resultList').empty();
+        if (results.length === 0) {
+            var li = '<a class="resultSong"><i class="svg svg-search"></i><span>\u6CA1\u6709\u7ED3\u679C</span></a>';
+            $("#resultList").append(li);
+        } else {
+            for (var i = 0; i < results.length; i++) {
+                var song = results[i].attributes;
+                var _li = searchTemplate(song, results[i].id);
+                $("#resultList").append(_li);
+            }
+        }
+    }
+    function clearSearch() {
+        $('#search-holder').text('搜索歌曲、歌手、专辑');
+        $('#searchClose').addClass('hide');
+        $('#searchTips').removeClass('hide');
+        $('#searchResults').addClass('hide');
+        $('#resultList').empty();
+    }
+    function onSearch() {
+        $('#search-holder').text('');
+        $('#searchClose').removeClass('hide');
+        $('#searchTips').addClass('hide');
+        $('.resultMatch').addClass('hide');
+        $('#searchResults').removeClass('hide');
+    }
+    function matchSongList(value) {
+        onMatch();
+        if (value.length != 0) {
+            $('input#searchSong').val(value);
+            $('#search-holder').text('');
+            throttle(value, 350, function (value) {
+                searchSongs(value).then(fillSongs);
+            });
+        }
+    }
+    function onMatch() {
+        $('.resultMatch').removeClass('hide');
+        $('#searchTips').addClass('hide');
+    }
+    function fillSongs(results) {
+        $('#matchSongList').empty();
+        if (results.length === 0) {
+            $('#matchTitle').text('');
+            var p = '<p>\u6682\u65E0\u641C\u7D22\u7ED3\u679C</p>';
+            $("#matchSongList").append(p);
+        } else {
+            for (var i = 0; i < results.length; i++) {
+                var song = results[i].attributes;
+                var div = songTemplate(song, results[i].id);
+                $("#matchSongList").append(div);
+            }
+        }
+    }
+    function searchTemplate(song, id) {
+        return '\n                <a href=/yunMusic-demo/play.html?id=' + id + ' class="resultSong">\n                <i class="svg svg-search"></i><span>' + song.name + ' - ' + song.singer + '</span></a>\n                ';
+    }
+    function songTemplate(song, id) {
+        return '<a href=/yunMusic-demo/play.html?id=' + id + ' class="songInfo">\n                    <p class="songTitle">' + song.name + '<span class="songDesc">' + song.des + '</span></p>\n                    <p class="singer"><i class="icon icon-sq"></i>' + song.singer + ' - ' + song.album + '</p>\n                    <div class="playButton"><i class="icon icon-play"></i></div>\n                    </a>';
+    }
+}
 
 /***/ })
 /******/ ]);

@@ -13,7 +13,16 @@ module.exports = {
                 use: [
                     'style-loader', 'css-loader', 'autoprefixer-loader'
                 ]
-            }
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [
+                    "babel-loader",
+                    "eslint-loader",
+                ],
+            },
         ]
     },
+
 };

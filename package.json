@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"webpack",
-    "watch":"webpack -w",
-    "deploy":"webpack -p"
+    "build": "webpack",
+    "watch": "webpack -w",
+    "deploy": "webpack -p"
   },
   "author": "GreyGao",
   "license": "ISC",
@@ -17,14 +17,17 @@
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
+    "babel-loader": "^7.1.2",
     "css-loader": "^0.28.7",
     "eslint": "^4.6.1",
     "eslint-config-standard": "^10.2.1",
+    "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.3.0",
     "eslint-plugin-standard": "^3.0.1",
+    "imports-loader": "^0.7.1",
     "postcss-loader": "^2.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.6"
