@@ -4,3 +4,4 @@
 /img_source
 .DS_Store
 songAPI.js
+gulpfile.js
