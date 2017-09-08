@@ -1,5 +1,5 @@
-# 网易云音乐移动端页面仿制 (Unoffical music.163.com Pages Demo)
-
+# 网易云音乐移动端页面仿制  
+description:This is a unoffical 'music.163.com' Pages Demo.
 ## 预览链接 ( Preview Pages ) 
 
 https://greygao.github.io/yunMusic-demo/index.html
